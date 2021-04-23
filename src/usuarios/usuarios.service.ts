@@ -1,11 +1,21 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { UsuarioRepository } from './usuarios.repository';
 import { UsuarioEntity } from './usuarios.entity';
 import { MessageDTO } from 'src/configuration/message.dto';
+import { UsuarioDTO } from './DTO/usuarios.dto';
+import { RolNombre } from '../rol/rol.enum';
+import { RolRepository } from '../rol/rol.repository';
+import { InjectRepository } from '@nestjs/typeorm';
+import {RolEntity} from '../rol/rol.entity'
 
 @Injectable()
 export class UsuariosService {
-    constructor(private usuarioRepository: UsuarioRepository) {}
+    constructor(
+       // @InjectRepository(UsuarioEntity)
+        private usuarioRepository: UsuarioRepository,
+      // @InjectRepository(RolEntity)
+        private rolRepository: RolRepository
+        ) {}
     // para obtener  todos los usuarios de una sola vez
     async getAll():Promise<UsuarioEntity[]>{
         const usuarios = await this.usuarioRepository.find();
@@ -19,4 +29,18 @@ export class UsuariosService {
         } 
         return producto;
     }
+    //metodo para crear a un administrador por medio de postman
+    async Guardar(dto: UsuarioDTO ){
+        const {email}= dto;
+        const exist = await this.usuarioRepository.findOne({where:[{email:email}]});
+        if(exist) throw new BadRequestException(new MessageDTO('este correo ya esta registrado'));
+        const rolAdmin= await this.rolRepository.findOne({where:{RolNombre: RolNombre.ADMIN }});
+        const rolUser= await this.rolRepository.findOne({where:{RolNombre: RolNombre.USER }});
+        if(!rolAdmin || !rolUser ) throw new InternalServerErrorException(new MessageDTO('los roles aún no son creados'));
+        const admin =this.usuarioRepository.create(dto);
+        admin.roles=[ rolAdmin,rolUser ];
+        await this.usuarioRepository.save(admin);
+        return new MessageDTO('administrador creado');
+    }
+
 }

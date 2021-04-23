@@ -17,6 +17,8 @@ export class UsuarioEntity{
     @Column({type:'int' })
     telefono: number;
     @Column({type:'varchar',length:20,unique:true, nullable:false })
+    NombreUsuario: string;
+    @Column({type:'varchar',length:20,unique:true, nullable:false })
     correo: string;
     @Column({type:'varchar', nullable:false })
     password: string;

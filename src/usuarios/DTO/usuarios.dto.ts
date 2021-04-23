@@ -1,4 +1,4 @@
-import {  IsInt,Max,IsString,IsEmail  } from 'class-validator'
+import {  IsInt,Max,IsString,IsEmail, MaxLength  } from 'class-validator'
 import { IsNotBlank } from "src/configuration/IsnotBlank.decorator";
 
 export class UsuarioDTO{
@@ -13,7 +13,9 @@ export class UsuarioDTO{
     @IsInt()
     @Max(10)
     telefono: number;
-
+    @IsNotBlank({message: 'el nombre de usuario no puede estar vacío'})
+    @MaxLength(10, {message: 'nombre de usuario: longitud máxima de 10'})
+    NombreUsuario: string;
     @IsEmail()
     email:string;
 }

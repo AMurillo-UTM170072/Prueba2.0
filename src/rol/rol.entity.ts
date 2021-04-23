@@ -11,7 +11,6 @@ export class RolEntity {
 
     @Column({type: 'varchar', length: 10, nullable: false, unique: true})
     rolNombre: RolNombre;
-   //@ManyToMany(type => UsuarioEntity, usuario => usuario.roles)
     usuarios: UsuarioEntity[];
 
 }
