@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="login-container">
+        <div id="output"></div>
+        <div class="avatar"></div>
+        <div class="form-box">
+            <form (ngSubmit)="login(f)" #f="ngForm" class="login100-form validate-from flex-sb flex-w">
+
+
+                <!-- campo para ingresar Email -->
+                <span *ngIf="f.submitted && f.controls['email'].errors" class="text-danger animated fadeIn"> Al correo es obligatorio</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="email" name="email" [(ngModel)]="usuario.email" required email placeholder="Correo">
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <!-- campo para ingresar contrseña -->
+                <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger animated fadeIn"> La contraseña deve de lleval al menos una letra Mayusucla una Minuscula y un Numero </span>
+                <div class="wrap-input100 m-b-16">
+
+                    <input class="input100" type="password" name="password" [(ngModel)]="usuario.password" minlength="Nn1" required placeholder="Contraseña">
+                    <span class="focus-input100"></span>
+                </div>
+                <button class="btn btn-info btn-block login" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+</div>
