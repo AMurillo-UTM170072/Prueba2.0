@@ -1,4 +1,6 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Param, 
+    ParseIntPipe, Post,Body } from '@nestjs/common';
+import { UsuarioDTO } from './DTO/usuarios.dto';
 import { UsuariosService } from './usuarios.service';
 
 @Controller('usuarios')
@@ -13,7 +15,11 @@ export class UsuariosController {
    @Get('/:id')
    async getOne(@Param('id', ParseIntPipe) id:number){
     return await this.servicioUsusario.getByOne(id);
+   }
+    @Post()
+    create(@Body() dto:UsuarioDTO){
+        return this.servicioUsusario.Guardar(dto);
+    }
 }
 
-}
 

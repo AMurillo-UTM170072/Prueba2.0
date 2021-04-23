@@ -17,5 +17,7 @@ export class UsuarioDTO{
     @MaxLength(10, {message: 'nombre de usuario: longitud máxima de 10'})
     NombreUsuario: string;
     @IsEmail()
-    email:string;
+    correo:string;
+    @IsNotBlank({message: 'la contraseña del usuario no puede estar vacía'})
+    password: string;
 }

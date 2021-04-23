@@ -31,11 +31,11 @@ export class UsuariosService {
     }
     //metodo para crear a un administrador por medio de postman
     async Guardar(dto: UsuarioDTO ){
-        const {email}= dto;
-        const exist = await this.usuarioRepository.findOne({where:[{email:email}]});
+        const {correo}= dto;
+        const exist = await this.usuarioRepository.findOne({where:[{correo:correo}]});
         if(exist) throw new BadRequestException(new MessageDTO('este correo ya esta registrado'));
-        const rolAdmin= await this.rolRepository.findOne({where:{RolNombre: RolNombre.ADMIN }});
-        const rolUser= await this.rolRepository.findOne({where:{RolNombre: RolNombre.USER }});
+        const rolAdmin= await this.rolRepository.findOne({where:{rolNombre: RolNombre.ADMIN }});
+        const rolUser= await this.rolRepository.findOne({where:{rolNombre: RolNombre.USER }});
         if(!rolAdmin || !rolUser ) throw new InternalServerErrorException(new MessageDTO('los roles aún no son creados'));
         const admin =this.usuarioRepository.create(dto);
         admin.roles=[ rolAdmin,rolUser ];
