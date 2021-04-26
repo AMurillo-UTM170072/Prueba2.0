@@ -1,4 +1,3 @@
-import { type } from "node:os";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { UsuarioEntity } from '../usuarios/usuarios.entity';
 
@@ -8,9 +7,11 @@ export class ReservacionEntity{
     id:number   
     @Column({type:'varchar',length:30,nullable:false})
     Motivo:string;
-    @Column({type:'datetime'})
+    @Column({type:'time'})
     HoraInicio:Date;
-    @Column({type:'datetime'})
+    @Column({type:'date'})
+    Dia:Date;
+    @Column({type:'time'})
     HoraFin:Date;
     
     @ManyToOne(type=> UsuarioEntity , user=> user.reservacion)
