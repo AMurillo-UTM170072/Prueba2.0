@@ -10,6 +10,8 @@ import { LoginComponent } from './pages_land/login/login.component';
 import { RegistroComponent } from './pages_land/registro/registro.component';
 import { ListadoUsuarioComponent } from './pages_land/listado-usuario/listado-usuario.component';
 import { ListadoReservacionesComponent } from './pages_land/listado-reservaciones/listado-reservaciones.component';
+import { NuevaReComponent } from './pages_land/nueva-re/nueva-re.component';
+import { HomeUsuarioComponent } from './pages_land/home-usuario/home-usuario.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ListadoReservacionesComponent } from './pages_land/listado-reservacione
     RegistroComponent,
     ListadoUsuarioComponent,
     ListadoReservacionesComponent,
+    NuevaReComponent,
+    HomeUsuarioComponent,
     ],
   imports: [
     BrowserModule,

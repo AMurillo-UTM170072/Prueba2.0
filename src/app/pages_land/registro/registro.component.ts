@@ -27,7 +27,7 @@ export class RegistroComponent implements OnInit {
 
 
      if (form.invalid) { return; }
-     this.router.navigateByUrl('/Listas de Usuario')
+     this.router.navigateByUrl('/Usuarios')
   }
 
 }
