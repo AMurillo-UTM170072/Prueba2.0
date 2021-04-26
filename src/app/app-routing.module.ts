@@ -20,7 +20,7 @@ const routes:Routes=[
 {path: 'Lista-Usuarios', component: ListadoUsuarioComponent},
 {path: 'Reservaciones', component:ListadoReservacionesComponent},
 {path: 'nuevaReservacion', component:NuevaReComponent},
-{path: 'usuario', component:HomeUsuarioComponent},
+{path: 'home', component:HomeUsuarioComponent},
 
 
 
