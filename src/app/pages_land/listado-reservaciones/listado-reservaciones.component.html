@@ -1,0 +1,119 @@
+<div class="wrapper">
+
+    <div class="top_navbar">
+        <div class="logo">
+            <a>INNMORTAL</a>
+        </div>
+        <div class="top_menu">
+            <div class="home_link">
+                <a href="landing">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span> Landing </span>
+                </a>
+            </div>
+            <div class="right_info">
+                <div class="icon_wrap">
+                    <div class="icon">
+                        <a href="login">
+
+                            <i class="fas fa-door-open"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="main_body">
+
+        <div class="sidebar_menu">
+            <div class="inner__sidebar_menu">
+
+                <ul>
+                    <li>
+                        <a href="registro">
+                            <span class="icon">
+		              	<i class="fas fa-user-plus"></i></span>
+                            <span class="list">Registro de Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Lista-Usuarios">
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="list">Lista de Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="nuevaReservacion">
+                            <span class="icon"><i class="fas fa-calendar"></i></span>
+                            <span class="list">Nueva Reservación</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Reservaciones">
+                            <span class="icon"><i class="fas fa-calendar-day"></i></span>
+                            <span class="list">Reservaciones</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <div class="hamburger">
+                    <div class="inner_hamburger">
+                        <span class="arrow">
+			                <i class="fas fa-long-arrow-alt-left"></i>
+			                <i class="fas fa-long-arrow-alt-right"></i>
+			            </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Lista de Recervaciones</h1>
+            <div class="form-group">
+                <input type="text" class="forms-control" placeholder="Buscar.." [(ngModel)]="filterpost" name="filterPost" /></div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Dia</th>
+                        <th>Hora Inicial</th>
+                        <th>Hora Final</th>
+                        <th>Motivo</th>
+                        <th>lo reservo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let post of posts">
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.Dia }}</td>
+                        <td>{{ post.HoraInicio }}</td>
+                        <td>{{ post.HoraFin}}</td>
+                        <td>{{post.Motivo}} </td>
+                        <td>{{ post.userId}}</td>
+                        <td>
+
+                            <button class="btn btn-info mr-1">
+                                <i class="fa fa-pen"></i>
+                            </button>
+                            <button class="btn btn-danger mr-1">
+                                <i class="fa fa-ban"></i>
+                            </button>
+                        </td>
+
+
+
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

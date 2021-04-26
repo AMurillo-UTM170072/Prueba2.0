@@ -8,7 +8,6 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { RolService } from './rol/rol.service';
 import { RolModule } from './rol/rol.module';
 import { AuthModule } from './auth/auth.module';
-import { ReservacionModule } from './reservacion/reservacion.module';
 
 
 @Module({
@@ -34,9 +33,8 @@ import { ReservacionModule } from './reservacion/reservacion.module';
     UsuariosModule,
     RolModule,
     AuthModule,
-    ReservacionModule,
    ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, RolService],
 })
 export class AppModule {}

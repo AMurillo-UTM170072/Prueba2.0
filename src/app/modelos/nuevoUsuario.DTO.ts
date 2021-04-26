@@ -1,0 +1,19 @@
+export class NvoUsuarioDTO{
+    id?:number;
+    Nombre:string;
+    ApPaterno:string;
+    ApMaterno:string;
+    telefono:number;
+    NombreUsuario:string;
+    correo:string;
+    password:string;
+    constructor(Nombre:string,ApPaterno:string,ApMaterno:string,telefono:number,NombreUsuario:string,correo:string,password:string){
+        this.Nombre=Nombre;
+        this.ApPaterno=ApPaterno;
+        this.ApMaterno=ApMaterno;
+        this.telefono=telefono;
+        this.NombreUsuario=NombreUsuario;
+        this.correo=correo;
+        this.password=password;
+    }
+}
