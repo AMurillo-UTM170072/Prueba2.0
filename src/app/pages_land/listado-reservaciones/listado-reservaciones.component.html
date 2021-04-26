@@ -73,48 +73,46 @@
         </div>
 
         <div class="container">
-            <div class="center">
-                <h1>Lista de reservaciones</h1>
-            </div>
-            <table class="table table-borderless table-dark">
+            <h1>Lista de Recervaciones</h1>
+            <div class="form-group">
+                <input type="text" class="forms-control" placeholder="Buscar.." [(ngModel)]="filterpost" name="filterPost" /></div>
+
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre de quien reservó</th>
-                        <th scope="col">Hora Inicial</th>
-                        <th scope="col">Hora Final</th>
-                        <th scope="col">Motivó</th>
-                        <th scope="col">Acciones</th>
+                        <th>ID</th>
+                        <th>Nombre </th>
+                        <th>Hora Inicial</th>
+                        <th>Hora Final</th>
+                        <th>Motivo</th>
+                        <th>Acciones</th>
+
+
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Jesus Alonso</td>
-                        <td>13:00</td>
-                        <td>13:30</td>
-                        <td>Nuevo proyecto</td>
-                        <td>
-                            <button>
-                        <i class="fas fa-ban"></i>
+                    <tr *ngFor="let post of posts | filter: filterpost">
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.nombre }}</td>
+                        <td>{{ post.horaI }}</td>
+                        <td>{{ post.horaF}}</td>
+                        <td>{{ post.motivo}}</td>
+                        <td>{{ post.acciones }}
+
+                            <button class="btn btn-info mr-1">
+                                <i class="fa fa-pen"></i>
                             </button>
-                            <button>
-                            <i class="fas fa-pen"></i>
+                            <button class="btn btn-danger mr-1">
+                                <i class="fa fa-ban"></i>
                             </button>
                         </td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
+
+
 
                     </tr>
-
                 </tbody>
+
             </table>
         </div>
     </div>

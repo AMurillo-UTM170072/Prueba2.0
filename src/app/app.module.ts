@@ -12,6 +12,7 @@ import { ListadoUsuarioComponent } from './pages_land/listado-usuario/listado-us
 import { ListadoReservacionesComponent } from './pages_land/listado-reservaciones/listado-reservaciones.component';
 import { NuevaReComponent } from './pages_land/nueva-re/nueva-re.component';
 import { HomeUsuarioComponent } from './pages_land/home-usuario/home-usuario.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HomeUsuarioComponent } from './pages_land/home-usuario/home-usuario.com
     ListadoReservacionesComponent,
     NuevaReComponent,
     HomeUsuarioComponent,
+    FilterPipe,
     ],
   imports: [
     BrowserModule,

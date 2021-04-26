@@ -73,39 +73,44 @@
         </div>
 
         <div class="container">
-            <div class="center">
-                <h1>Lista de personal</h1>
-            </div>
-            <table class="table table-borderless table-dark">
+            <h1>Lista de Usuarios</h1>
+            <div class="form-group">
+                <input type="text" class="forms-control" placeholder="Buscar.." [(ngModel)]="filterpost" name="filterPost" /></div>
+
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre completo</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Acciones</th>
+                        <th>ID</th>
+                        <th>Nombre completo</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Acciones</th>
+
 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                    <tr *ngFor="let post of posts | filter: filterpost">
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.nombre }}</td>
+                        <td>{{ post.email }}</td>
+                        <td>{{ post.telefono }}</td>
+                        <td>{{ post.acciones }}
 
-                        <td>@mdo</td>
+                            <button class="btn btn-info mr-1">
+                                <i class="fa fa-pen"></i>
+                            </button>
+                            <button class="btn btn-danger mr-1">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+
+
+
+
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-
-                    </tr>
-
                 </tbody>
+
             </table>
         </div>
     </div>
