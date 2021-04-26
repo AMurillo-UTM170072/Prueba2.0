@@ -5,11 +5,11 @@ export class NuevoUsuarioDto {
 
     @IsString()
     @MaxLength(10, {message: 'nombre: longitud máxima de 10'})
-    nombre: string;
+    Nombre: string;
 
     @IsNotBlank({message: 'el nombre de usuario no puede estar vacío'})
     @MaxLength(10, {message: 'nombre de usuario: longitud máxima de 10'})
-    nombreUsuario: string;
+    NombreUsuario: string;
 
     @IsEmail()
     correo: string;

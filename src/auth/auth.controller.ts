@@ -12,13 +12,13 @@ export class AuthController {
      getAll() {
          return this.identificacionService.getall();
      }
-     //crear un nuevo administrador
+     //crear un nuevo usuario
      @UsePipes(new ValidationPipe({whitelist: true}))
      @Post('nuevo')
      create(@Body() dto: NuevoUsuarioDto) {
          return this.identificacionService.create(dto);
      }
-     //modificar al administrador
+     //modificar al usuario
      @UsePipes(new ValidationPipe({whitelist: true}))
      @Post('login')
      login(@Body() dto: LoginUsuarioDTO) {

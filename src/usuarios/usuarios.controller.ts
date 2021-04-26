@@ -1,12 +1,16 @@
 import { Controller, Get, Param, 
-    ParseIntPipe, Post,Body } from '@nestjs/common';
+    ParseIntPipe, Post,Body, UseGuards } from '@nestjs/common';
 import { UsuarioDTO } from './DTO/usuarios.dto';
 import { UsuariosService } from './usuarios.service';
+import { RolNombre } from '../rol/rol.enum';
+import { RolDecorator } from 'src/decorators/rol-decorator.decorator';
 
 @Controller('usuarios')
 export class UsuariosController {
     constructor(private readonly servicioUsusario:UsuariosService ){}
     
+    @RolDecorator(RolNombre.ADMIN)
+    @UseGuards()
     @Get()
     async getAll(){
         return await this.servicioUsusario.getAll();

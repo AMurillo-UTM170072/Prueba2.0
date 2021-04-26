@@ -1,4 +1,5 @@
-import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException,
+     NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { MessageDTO } from 'src/configuration/message.dto';
 import { RolNombre } from 'src/rol/rol.enum';
 import { UsuarioEntity } from 'src/usuarios/usuarios.entity';
@@ -9,6 +10,7 @@ import { compare } from  'bcryptjs';
 import { AuthRepository } from './auth.repository';
 import { RolRepository } from '../rol/rol.repository';
 import { JwtService } from '@nestjs/jwt';
+import { tokenDTO } from './DTO/token.dto'
 
 
 @Injectable()
@@ -27,14 +29,14 @@ export class AuthService {
         comprobando de que los roles esten creados  para poder hacer una insercion a la tabla de usuarios
      */
     async create(dto: NuevoUsuarioDto ): Promise<any> {
-        const {nombreUsuario, correo} = dto;
-        const exists = await this.authRepository.findOne({where: [{nombreUsuario: nombreUsuario}, {correo: correo}]});
+        const {NombreUsuario, correo} = dto;
+        const exists = await this.authRepository.findOne({where: [{NombreUsuario: NombreUsuario}, {correo: correo}]});
         if(exists) throw new BadRequestException(new MessageDTO('ese usuario ya existe'));
         const rolUser = await this.rolRepository.findOne({where: {rolNombre: RolNombre.USER }});
         if( !rolUser) throw new InternalServerErrorException(new MessageDTO('los roles aún no han sido creados'));
-        const admin = this.authRepository.create(dto);
-        admin.roles = [ rolUser];
-        await this.authRepository.save(admin);
+        const usuario = this.authRepository.create(dto);
+        usuario.roles = [ rolUser];
+        await this.authRepository.save(usuario);
         return new MessageDTO('usuario creado');
     }
     /*
@@ -56,18 +58,18 @@ export class AuthService {
         }
         const token= await this.jwsService.sign(payload);
         return {token}
-    }/*
+    }
     //metodo que refresca el JWT para el usuario
     async refresh(dto: tokenDTO): Promise<any> {
         const usuario = await this.jwsService.decode(dto.token);
         const payload: PayloadInterface = {
             id: usuario[`id`],
-            nombreUsuario: usuario[`nombreUsuario`],
+            NombreUsuario: usuario[`NombreUsuario`],
             correo: usuario[`correo`],
             roles: usuario[`roles`]
         }
         const token = await this.jwsService.sign(payload);
         return {token};
-    }*/
+    }
 }
 
