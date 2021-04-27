@@ -9,10 +9,6 @@ import { ListadoReservacionesComponent } from './pages_land/listado-reservacione
 import { NuevaReComponent } from './pages_land/nueva-re/nueva-re.component';
 import { HomeUsuarioComponent } from './pages_land/home-usuario/home-usuario.component';
 
-
-
-
-
 const routes:Routes=[
 {path: 'main', component: MainComponent},
 {path: 'login', component: LoginComponent},
@@ -20,18 +16,8 @@ const routes:Routes=[
 {path: 'Lista-Usuarios', component: ListadoUsuarioComponent},
 {path: 'Reservaciones', component:ListadoReservacionesComponent},
 {path: 'nuevaReservacion', component:NuevaReComponent},
-{path: 'home', component:HomeUsuarioComponent},
-
-
-
-
-
-
-{path: '**', redirectTo:'main'},
-
-
-
-
+{path: '', component:HomeUsuarioComponent},
+{path: '**', redirectTo:'',pathMatch:'full'},
 ]
 
 @NgModule({

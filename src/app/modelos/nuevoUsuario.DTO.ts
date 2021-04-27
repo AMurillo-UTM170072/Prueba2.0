@@ -7,7 +7,8 @@ export class NvoUsuarioDTO{
     NombreUsuario:string;
     correo:string;
     password:string;
-    constructor(Nombre:string,ApPaterno:string,ApMaterno:string,telefono:number,NombreUsuario:string,correo:string,password:string){
+    constructor(Nombre:string,ApPaterno:string,ApMaterno:string,telefono:number,
+        NombreUsuario:string,correo:string,password:string){
         this.Nombre=Nombre;
         this.ApPaterno=ApPaterno;
         this.ApMaterno=ApMaterno;

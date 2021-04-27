@@ -14,7 +14,8 @@ import { NuevaReComponent } from './pages_land/nueva-re/nueva-re.component';
 import { HomeUsuarioComponent } from './pages_land/home-usuario/home-usuario.component';
 import { FilterPipe } from './pipe/filter.pipe';
 //requisitos HTPP
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http'
     ],
   imports: [
     BrowserModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     HttpClientModule

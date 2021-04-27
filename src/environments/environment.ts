@@ -5,5 +5,6 @@
 export const environment = {
   production: false,
   ReservacionURL:"http://localhost:8080/reservacion/",
-  UsuarioURL:"http://localhost:8080/usuarios/"
+  UsuarioURL:"http://localhost:8080/usuarios/",
+  AuthURL:'http://localhost:8080/auth/'
 };
