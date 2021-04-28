@@ -8,14 +8,15 @@ import { ListadoUsuarioComponent } from './pages_land/listado-usuario/listado-us
 import { ListadoReservacionesComponent } from './pages_land/listado-reservaciones/listado-reservaciones.component';
 import { NuevaReComponent } from './pages_land/nueva-re/nueva-re.component';
 import { HomeUsuarioComponent } from './pages_land/home-usuario/home-usuario.component';
+import { AdminGuard } from './Guards/admin.guard';
 
 const routes:Routes=[
 {path: 'main', component: MainComponent},
-{path: 'login', component: LoginComponent},
-{path: 'registro', component: RegistroComponent},
-{path: 'Lista-Usuarios', component: ListadoUsuarioComponent},
-{path: 'Reservaciones', component:ListadoReservacionesComponent},
-{path: 'nuevaReservacion', component:NuevaReComponent},
+{path: 'login', component: LoginComponent },
+{path: 'nuevo', component: RegistroComponent, canActivate:[AdminGuard],data:{expectedRol:['admin']} },
+{path: 'Lista-Usuarios', component: ListadoUsuarioComponent,canActivate:[AdminGuard],data:{expectedRol:['admin']} },
+{path: 'Reservaciones', component:ListadoReservacionesComponent,canActivate:[AdminGuard],data:{expectedRol:['admin','user']} },
+{path: 'nuevaReservacion', component:NuevaReComponent,canActivate:[AdminGuard],data:{expectedRol:['admin','user']}},
 {path: '', component:HomeUsuarioComponent},
 {path: '**', redirectTo:'',pathMatch:'full'},
 ]

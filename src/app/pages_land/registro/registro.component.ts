@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
 import { NvoUsuarioDTO } from '../../modelos/nuevoUsuario.DTO';
+import { TokenService } from '../../services/token.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+  isLogged:boolean;
+  isAdmin:boolean;
   usuario: NvoUsuarioDTO = null;
    Nombre: string;
    ApMaterno: string;
@@ -18,9 +21,11 @@ export class RegistroComponent implements OnInit {
    password: string;
   toastrService: any;
    constructor(private router:Router,
-    private servicioUsuario:UsuariosService){}
+    private servicioUsuario:UsuariosService ,
+    private tokenS:TokenService){}
   ngOnInit():void {
-    
+    this.isLogged=this.tokenS.isLogged();
+    this.isAdmin=this.tokenS.isAdmin();
   }
   registro():void{
     this.usuario=new NvoUsuarioDTO(this.Nombre,this.ApPaterno,this.ApMaterno,

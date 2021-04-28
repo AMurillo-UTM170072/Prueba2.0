@@ -31,7 +31,7 @@
             <div class="inner__sidebar_menu">
 
                 <ul>
-                    <li>
+                    <li *ngIf='isAdmin'>
                         <a href="registro">
                             <span class="icon">
 		              	<i class="fas fa-user-plus"></i></span>
@@ -44,7 +44,7 @@
                             <span class="list">Lista de Usuarios</span>
                         </a>
                     </li>
-                    <li>
+                    <li *ngIf='isAdmin'>
                         <a href="nuevaReservacion">
                             <span class="icon"><i class="fas fa-calendar"></i></span>
                             <span class="list">Nueva Reservación</span>

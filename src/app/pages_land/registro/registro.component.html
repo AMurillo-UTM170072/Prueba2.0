@@ -31,14 +31,14 @@
             <div class="inner__sidebar_menu">
 
                 <ul>
-                    <li>
+                    <li *ngIf='isAdmin'>
                         <a href="registro">
                             <span class="icon">
 		              	<i class="fas fa-user-plus"></i></span>
                             <span class="list">Registro de Usuarios</span>
                         </a>
                     </li>
-                    <li>
+                    <li *ngIf='isAdmin'>
                         <a href="Lista-Usuarios">
                             <span class="icon"><i class="fas fa-user"></i></span>
                             <span class="list">Lista de Usuarios</span>

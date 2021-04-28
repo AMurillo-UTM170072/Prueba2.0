@@ -28,8 +28,8 @@ export class TokenService {
     const payload = token.split('.')[1];
     const values = atob(payload);
     const valuesJson = JSON.parse(values);
-    const nombreUsuario = valuesJson.nombreUsuario;
-    return nombreUsuario;
+    const NombreUsuario = valuesJson.NombreUsuario;
+    return NombreUsuario;
   }
 
   isAdmin(): any {

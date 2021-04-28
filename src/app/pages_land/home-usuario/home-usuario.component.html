@@ -14,10 +14,9 @@
             <div class="right_info">
                 <div class="icon_wrap">
                     <div class="icon">
-                        <a href="login">
-
-                            <i class="fas fa-door-open"></i>
-                        </a>
+                        <button *ngIf="isLogged" (click)="logOut()"> 
+                            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión  
+                        </button>
                     </div>
                 </div>
 
@@ -31,14 +30,14 @@
             <div class="inner__sidebar_menu">
 
                 <ul>
-                    <li>
+                    <li *ngIf="isAdmin">
                         <a href="registro">
                             <span class="icon">
 		              	<i class="fas fa-user-plus"></i></span>
                             <span class="list">Registro de Usuarios</span>
                         </a>
                     </li>
-                    <li>
+                    <li *ngIf="isAdmin">
                         <a href="Lista-Usuarios">
                             <span class="icon"><i class="fas fa-user"></i></span>
                             <span class="list">Lista de Usuarios</span>
@@ -56,6 +55,12 @@
                             <span class="list">Reservaciones</span>
                         </a>
                     </li>
-
-
                 </ul>
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="display-4" *ngIf="NombreUsuario">hola, {{NombreUsuario}}</h1>
+        </div>
+
+    </div>
+</div>

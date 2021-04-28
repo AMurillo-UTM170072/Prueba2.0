@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 //requisitos HTPP
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { interceptorProvider } from './interceptores/admin-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,13 +31,14 @@ import { ToastrModule } from 'ngx-toastr';
     FilterPipe,
     ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     ToastrModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
