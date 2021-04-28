@@ -36,6 +36,7 @@ export class AuthService {
         if( !rolUser) throw new InternalServerErrorException(new MessageDTO('los roles aún no han sido creados'));
         const usuario = this.authRepository.create(dto);
         usuario.roles = [ rolUser];
+        console.log(usuario)
         await this.authRepository.save(usuario);
         return new MessageDTO('usuario creado');
     }

@@ -9,7 +9,7 @@ import { RolDecorator } from 'src/decorators/rol-decorator.decorator';
 export class UsuariosController {
     constructor(private readonly servicioUsusario:UsuariosService ){}
     
-    @RolDecorator(RolNombre.ADMIN)
+    @RolDecorator(RolNombre.ADMIN, RolNombre.USER)
     @UseGuards()
     @Get()
     async getAll(){

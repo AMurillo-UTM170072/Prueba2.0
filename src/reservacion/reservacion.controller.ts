@@ -9,7 +9,7 @@ import { RolesGuard } from '../guards/rol.guard';
 export class ReservacionController {
     constructor( private readonly servicoreservacion:ReservacionService ){}
     @RolDecorator(RolNombre.ADMIN,RolNombre.USER)
-    @UseGuards(JwtAuthGuard,RolesGuard)
+    //@UseGuards(JwtAuthGuard,RolesGuard)
     @Get()
     async getAll(){
         return await this.servicoreservacion.GetAll();
