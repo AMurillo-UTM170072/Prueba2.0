@@ -1,0 +1,23 @@
+<div class="top_navbar">
+    <div class="logo">
+        <a>INNMORTAL</a>
+    </div>
+    <div class="top_menu">
+        <div class="home_link">
+            <a href="landing">
+                <span class="icon"><i class="fas fa-home"></i></span>
+                <span> Landing </span>
+            </a>
+        </div>
+        <div class="right_info">
+            <div class="icon_wrap">
+                <div class="icon">
+                    <button *ngIf="isLogged" (click)="logOut()"> 
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión  
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

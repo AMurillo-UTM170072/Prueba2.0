@@ -13,10 +13,10 @@ import { AdminGuard } from './Guards/admin.guard';
 const routes:Routes=[
 {path: 'main', component: MainComponent},
 {path: 'login', component: LoginComponent },
-{path: 'nuevo', component: RegistroComponent, canActivate:[AdminGuard],data:{expectedRol:['admin']} },
-{path: 'Lista-Usuarios', component: ListadoUsuarioComponent,canActivate:[AdminGuard],data:{expectedRol:['admin']} },
-{path: 'Reservaciones', component:ListadoReservacionesComponent,canActivate:[AdminGuard],data:{expectedRol:['admin','user']} },
-{path: 'nuevaReservacion', component:NuevaReComponent,canActivate:[AdminGuard],data:{expectedRol:['admin','user']}},
+{path: 'nuevo', component: RegistroComponent/*, canActivate:[AdminGuard],data:{expectedRol:['admin']}*/ },
+{path: 'Lista-Usuarios', component: ListadoUsuarioComponent/*,canActivate:[AdminGuard],data:{expectedRol:['admin']}*/ },
+{path: 'Reservaciones', component:ListadoReservacionesComponent/*,canActivate:[AdminGuard],data:{expectedRol:['admin','user']} */},
+{path: 'nuevaReservacion', component:NuevaReComponent/*,canActivate:[AdminGuard],data:{expectedRol:['admin','user']}*/},
 {path: '', component:HomeUsuarioComponent},
 {path: '**', redirectTo:'',pathMatch:'full'},
 ]

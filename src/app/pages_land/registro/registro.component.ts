@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
   registro():void{
     this.usuario=new NvoUsuarioDTO(this.Nombre,this.ApPaterno,this.ApMaterno,
       this.telefono,this.NombreUsuario,this.correo,this.password)
-      console.log('probando los datos del usuario' ,this.usuario.correo);
+      console.log('probando los datos del usuario' ,this.usuario);
      this.servicioUsuario.guardar(this.usuario).subscribe(
       data => {
         this.toastrService.success(data.message, 'OK', {
@@ -44,6 +44,7 @@ export class RegistroComponent implements OnInit {
         });
       }
     );
+    
   }
 
 }

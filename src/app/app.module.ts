@@ -17,6 +17,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { interceptorProvider } from './interceptores/admin-interceptor.interceptor';
+import { MenuComponent } from './pages_land/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { interceptorProvider } from './interceptores/admin-interceptor.intercept
     NuevaReComponent,
     HomeUsuarioComponent,
     FilterPipe,
+    MenuComponent,
     ],
   imports: [
     BrowserAnimationsModule,

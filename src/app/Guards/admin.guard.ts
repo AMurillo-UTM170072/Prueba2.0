@@ -10,8 +10,7 @@ export class AdminGuard implements CanActivate {
   realRol:string;
   constructor(private tokenService:TokenService,private router:Router ){}
   
-  canActivate(
-    next: ActivatedRouteSnapshot,state: RouterStateSnapshot):boolean {
+  canActivate( next: ActivatedRouteSnapshot,state: RouterStateSnapshot):boolean {
       const expectedRol= next.data.expectedRol;
       this.realRol=this.tokenService.isAdmin()? 'admin':'user';
       if(!this.tokenService.isLogged() || expectedRol.indexof(this.realRol)<0){

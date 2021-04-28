@@ -1,29 +1,5 @@
 <div class="wrapper">
-
-    <div class="top_navbar">
-        <div class="logo">
-            <a>INNMORTAL</a>
-        </div>
-        <div class="top_menu">
-            <div class="home_link">
-                <a href="landing">
-                    <span class="icon"><i class="fas fa-home"></i></span>
-                    <span> Landing </span>
-                </a>
-            </div>
-            <div class="right_info">
-                <div class="icon_wrap">
-                    <div class="icon">
-                        <a href="login">
-
-                            <i class="fas fa-door-open"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    <app-menu></app-menu>
 
     <div class="main_body">
 
@@ -32,7 +8,7 @@
 
                 <ul>
                     <li *ngIf='isAdmin'>
-                        <a href="registro">
+                        <a href="nuevo">
                             <span class="icon">
 		              	<i class="fas fa-user-plus"></i></span>
                             <span class="list">Registro de Usuarios</span>
@@ -91,7 +67,7 @@
 
                         <span *ngIf="f.submitted && f.controls['nombre'].errors" class="text-danger animated fadeIn"> El Nombre es obligatorio</span>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="Nombre" [(ngModel)]="usuario.Nombre" required placeholder="Nombre" maxlength="20">
+                            <input class="input100" type="text" name="Nombre" [(ngModel)]="Nombre" required placeholder="Nombre" maxlength="20">
 
                             <span class="focus-input100"></span>
                         </div>
@@ -101,7 +77,7 @@
 
                         <span *ngIf="f.submitted && f.controls['apellidoPa'].errors" class="text-danger animated fadeIn"> El Apellido es obligatorio</span>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="apellidoPa" [(ngModel)]="usuario.ApPaterno " required placeholder="Apellido Paterno" maxlength="20">
+                            <input class="input100" type="text" name="apellidoPa" [(ngModel)]="ApPaterno " required placeholder="Apellido Paterno" maxlength="20">
 
                             <span class="focus-input100"></span>
                         </div>
@@ -109,7 +85,7 @@
                         <!-- campo para ingresar apellido Materno-->
                         <span *ngIf="f.submitted && f.controls['apellidoMA'].errors" class="text-danger animated fadeIn"> El Apellido es obligatorio</span>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="apellidoMA " [(ngModel)]="usuario.ApMaterno" required placeholder="Apellido Materno" maxlength="20">
+                            <input class="input100" type="text" name="apellidoMA " [(ngModel)]="ApMaterno" required placeholder="Apellido Materno" maxlength="20">
 
                             <span class="focus-input100"></span>
                         </div>
@@ -117,14 +93,20 @@
                         <!-- campo para ingresar cTelefono -->
                         <span *ngIf="f.submitted && f.controls['telefono'].errors" class="text-danger animated fadeIn"> Asegurate de que tenga los 10 digitos</span>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="telefono" name="telefono" [(ngModel)]="usuario.telefono" required placeholder="443-132-8966" maxlength="10">
+                            <input class="input100" type="telefono" name="telefono" [(ngModel)]="telefono" required placeholder="443-132-8966" maxlength="10">
                             <span class="focus-input100"></span>
                         </div>
 
+                        <!-- campo de Nombre del usuario-->
+                        <span *ngIf="f.submitted && f.controls['telefono'].errors" class="text-danger animated fadeIn"> Asegurate de que este lleno el campo</span>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="telefono" name="telefono" [(ngModel)]="NombreUsuario" required placeholder="Nombre de Usuario" maxlength="10">
+                            <span class="focus-input100"></span>
+                        </div>
                         <!-- campo para ingresar Email -->
                         <span *ngIf="f.submitted && f.controls['email'].errors" class="text-danger animated fadeIn"> Al correo es obligatorio</span>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="email" name="email" [(ngModel)]="usuario.correo" required placeholder="Correo">
+                            <input class="input100" type="email" name="email" [(ngModel)]="correo" required placeholder="Correo">
                             <span class="focus-input100"></span>
                         </div>
 
@@ -132,7 +114,7 @@
                         <!-- campo para ingresar contrseña -->
                         <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger animated fadeIn"> Al menos 8 caracterres</span>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="password" name="password" [(ngModel)]="usuario.password" minlength="8" required placeholder="Contraseña">
+                            <input class="input100" type="password" name="password" [(ngModel)]="password" minlength="8" required placeholder="Contraseña">
                             <span class="focus-input100"></span>
                         </div>
                         <!-- campo para confirmar contrseña -->
